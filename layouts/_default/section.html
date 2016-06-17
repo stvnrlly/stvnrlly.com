@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" }}
+<body>
+  {{ partial "nav.html" }}
+  <div class="container">
+    <div class="col-sm-10 col-sm-offset-1">
+      {{ range first 5 .Data.Pages }}
+      <div class="row post-title">
+        <h1 class="col-sm-10 col-sm-offset-2 post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+      </div>
+      <div class="row post-container">
+        <div class="col-sm-2 post-date">
+          <div><strong>Published on</strong> {{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+          <br>
+          {{ if ne .Date .Lastmod }}
+          <div><strong>Last Updated on</strong> {{ .Lastmod.Format "Mon, Jan 2, 2006" }}</div>
+          <br>
+          {{ end }}
+          {{ if .Params.tags }}
+          <div><strong>Tags</strong></div>
+          <div class="post-tags">
+            {{ delimit .Params.tags ", " }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="col-sm-8 post-content">
+          {{ .Content }}
+          <hr />
+        </div>
+      </div>
+      {{ end }}
+      {{ if gt (.Data.Pages | len) 5 }}
+      <div class="row archive">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h1>More</h1>
+          {{ range after 5 .Data.Pages }}
+            {{ .Render "li" }}
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</body>
+</html>

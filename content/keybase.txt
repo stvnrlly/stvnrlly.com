@@ -1,0 +1,63 @@
+==================================================================
+https://keybase.io/stvnrlly
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stvnrlly.com
+  * I am stvnrlly (https://keybase.io/stvnrlly) on keybase.
+  * I have a public key with fingerprint 85B8 13FD 9C35 DCC6 7435  C184 4589 316C 7E3F 9613
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "85b813fd9c35dcc67435c1844589316c7e3f9613",
+            "host": "keybase.io",
+            "key_id": "4589316c7e3f9613",
+            "uid": "285bae5b18e049c739456a1af5a16100",
+            "username": "stvnrlly"
+        },
+        "service": {
+            "hostname": "stvnrlly.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1417793910,
+    "expire_in": 157680000,
+    "prev": null,
+    "seqno": 1,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.1.6
+Comment: https://keybase.io/crypto
+
+yMGpAnicO8LLzMDFGOyjtz5YOfI/4+kDW0oZQhovllUrJeWnVCpZVStlp4KptMy8
+9NSigqLMvBIlKyUL0yQLQ+O0FMtkY9OU5GQzcxNj02RDCxMTUwtLY0OzZPNU4zRL
+M0NjJR2ljPxikA6gMUmJxal6mflAMSAnPjMFKIpFfSlYwghoQ2KqaZKhRaqBiWWy
+ubGlialZomFimmmioZmhgQFIYXFqUV5ibipQdXFJWV5RTk6lUq2OElC0LDM5FeRm
+kNVoKvSS83OBeguK8kvyk/NzgDIZJSUFxVYgnSWVBSCl5alJ8VBD4pMy81KAHgfq
+KEstKs7Mz1OyMgSqTC7JBJlqaGJobm5pbGlooKOUWlGQWZQanwlSYWpuZmEABCB7
+UsuUrPJKc3JADivMywfKAi1KTAc5KTM9L7GktChVqfbQgRgWBkYuBjZWJlDgM3Bx
+CsCi5OszDoY1dyYynuVese6x+n6NwGcS5n8UzeYx/TgsErznYEvidDV262vXJ5f3
+Shzat9a/PP5TtHxt7jFRx43h83zqDrAHbt9zyKPhw+sVv9RXbnmWfHjhX76WzopG
+3Ssda7+FLE+4fe2bFle1wuPlMR/FlJWMczfeiJ8k+0Xvfldy/CWuV5L8Fv12vLJl
+l6dnd9/rjLh8dnbz/csHVrR9mdX4nuWOTsnJlDcbDuztyeM68/P5z83iO5RNF6xJ
+qs1hSpyY++6uf1fGtZ/L9zyew3fvjeb6uTN4GvbfvJ4l/8lq7+n7Jky29pEizSrW
+CjFyvssVlNi/KR8XFF3Y5LRKSvShOf/66THyR1LsLytsckvlc7gIALi3BFk=
+=hwCP
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/stvnrlly
+
+==================================================================

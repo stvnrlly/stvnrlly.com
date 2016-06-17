@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" }}
+<body>
+  {{ partial "nav.html" }}
+  <div class="container">
+    <div class="col-sm-8 col-sm-offset-2"><img id="home-img" class="img-responsive"></div>
+  </div>
+</body>
+<script type="text/javascript">
+  var image = 1;
+  if (Math.random() > 0.9 ) {
+    image = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+  }
+  var i = document.getElementById('home-img');
+  i.src = 'img/'+image+'.jpg';
+  i.alt = 'photo-'+image;
+</script>
+</html>
