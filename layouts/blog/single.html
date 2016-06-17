@@ -10,8 +10,17 @@
       </div>
       <div class="row post-container">
         <div class="col-sm-2 post-date">
-          <div><strong>Published on</strong> {{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-          <br>
+          <div><strong>Published on</strong></div>
+          <div>{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+          <br />
+          {{ if ne .Date .Lastmod }}
+          <div><strong>Last Updated on</strong></div>
+          <div>{{ .Lastmod.Format "Mon, Jan 2, 2006" }}</div>
+          <br />
+          {{ end }}
+          <div><strong>Reading Time</strong></div>
+          <div>{{ .ReadingTime }} minutes</div>
+          <br />
           {{ if .Params.tags }}
           <div><strong>Tags</strong></div>
           <div class="post-tags">
