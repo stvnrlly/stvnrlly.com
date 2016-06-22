@@ -1,0 +1,254 @@
++++
+categories = []
+date = "2016-06-15T00:22:41-04:00"
+description = "A basic introduction to Python, Ruby, and Node.js"
+draft = false
+tags = []
+title = "Hello, World"
+
++++
+
+<body>
+  <div>Hello, World<br /><span class="subhead"></span></div>
+  <div><pre>echo "hello world" | say</pre></div>
+  <div>are things installed?
+    <pre>
+      $ python --version
+      $ ruby --version
+      $ node --version
+    </pre>
+  </div>
+  <div><pre class="terminal" id="versions"></pre></div>
+  <div>major vs. minor versions</div>
+  <div>
+    <p>2.<em>7</em>.9</p>
+    <p>minor: features added</p>
+  </div>
+  <div>
+    <p><em>2</em>.7.9</p>
+    <p>major: breaking changes</p>
+  </div>
+  <div>a version manager can help with this</div>
+  <div>create a dev folder
+    <pre>
+      mkdir -p dev
+      cd dev
+      mkdir helloworld && cd helloworld
+    </pre>
+  </div>
+  <div>create some files
+    <pre>
+      touch hello_world.py
+      touch hello_world.rb
+      touch hello_world.js
+    </pre>
+  </div>
+  <div><pre class="terminal" id="ls"></pre></div>
+  <div>open the text editor
+    <pre>
+      atom .
+    </pre>
+  </div>
+  <div>python</div>
+  <div>in hello_world.py:
+    <pre>
+      print "Hello, World"
+    </pre>
+  </div>
+  <div><pre class="terminal" id="py_hello"></pre></div>
+  <div>ruby</div>
+  <div>in hello_world.rb:
+    <pre>
+      puts "Hello, World"
+    </pre>
+  </div>
+  <div><pre class="terminal" id="rb_hello"></pre></div>
+  <div>node</div>
+  <div>in hello_world.js:
+    <pre>
+      console.log("Hello, World");
+    </pre>
+  </div>
+  <div><pre class="terminal" id="node_hello"></pre></div>
+  <div>let's do it wrong</div>
+  <div>python3 != python2.7
+    <pre>
+      python3 hello_world.py
+    </pre>
+  </div>
+  <div>wrong language
+    <pre>
+      node hello_world.rb
+    </pre>
+  </div>
+  <div>a little more complicated</div>
+  <div>variables</div>
+  <div>in hello_world.py:
+    <pre>
+      message = "Hello, World"
+      print message
+    </pre>
+  </div>
+  <div><pre class="terminal" id="py_hello2"></pre></div>
+  <div>importing a package</div>
+  <div>in hello_world.py:
+    <pre>
+      import random
+      print random.randint(0,10)
+    </pre>
+  </div>
+  <div><pre class="terminal" id="py_random"></pre></div>
+  <div>conditionals</div>
+  <div>in hello_world.py
+    <pre>
+      if 3 > 2:
+        print "math"
+      else:
+        print "what"
+    </pre>
+  </div>
+  <div>loops</div>
+  <div>in hello_world.py
+    <pre>
+      array = [0,1,2,5]
+      for <em>n</em> in array:
+        print "number: "+<em>n</em>
+    </pre>
+  </div>
+  <div>in hello_world.py
+    <pre>
+      array = [0,1,2,5]
+      for n in array:
+        print "number: "+<em>str(n)</em>
+    </pre>
+  </div>
+  <div><pre class="terminal" id="py_loop"></pre></div>
+  <div>functions</div>
+  <div>in hello_world.py
+    <pre>
+      def greet(msg):
+        print "hello "+msg
+
+      greet("wow")
+    </pre>
+  </div>
+  <div>that's it!</div>
+</body>
+<script type="text/javascript">
+  var versions = [
+    {
+      type: 'input',
+      text: 'python --version'
+    },
+    {
+      type: 'output',
+      text: 'Python 2.7.9'
+    },
+    {
+      type: 'input',
+      text: 'ruby --version'
+    },
+    {
+      type: 'output',
+      text: 'ruby 2.2.4p230 (2015-12-16 \nrevision 53155) [x86_64-darwin15]'
+    },
+    {
+      type: 'input',
+      text: 'node --version'
+    },
+    {
+      type: 'output',
+      text: 'v0.12.9'
+    }
+  ]
+
+  var ls = [
+    {
+      type: 'input',
+      text: 'ls'
+    },
+    {
+      type: 'output',
+      text: 'hello_world.js'
+    },
+    {
+      type: 'output',
+      text: 'hello_world.py'
+    },
+    {
+      type: 'output',
+      text: 'hello_world.rb'
+    }
+  ]
+
+  var py_hello = [
+    {
+      type: 'input',
+      text:'python hello_world.py'
+    },
+    {
+      type: 'output',
+      text: 'Hello, World'
+    }
+  ];
+
+  var py_hello2 = py_hello
+
+  var rb_hello = [
+    {
+      type: 'input',
+      text:'ruby hello_world.rb'
+    },
+    {
+      type: 'output',
+      text: 'Hello, World'
+    }
+  ];
+
+  var node_hello = [
+    {
+      type: 'input',
+      text:'node hello_world.js'
+    },
+    {
+      type: 'output',
+      text: 'Hello, World'
+    }
+  ];
+
+  var py_random = [
+    {
+      type: 'input',
+      text:'python hello_world.py'
+    },
+    {
+      type: 'output',
+      text: Math.floor(Math.random() * (10 - 0 + 1)) + 0
+    }
+  ];
+
+  var py_loop = [
+    {
+      type: 'input',
+      text: 'python hello_world.py'
+    },
+    {
+      type: 'output',
+      text: 'number: 0'
+    },
+    {
+      type: 'output',
+      text: 'number: 1'
+    },
+    {
+      type: 'output',
+      text: 'number: 2'
+    },
+    {
+      type: 'output',
+      text: 'number: 5'
+    }
+  ]
+
+
+</script>

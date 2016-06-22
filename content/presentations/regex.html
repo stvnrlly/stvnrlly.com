@@ -1,0 +1,64 @@
++++
+categories = []
+date = "2016-06-15T00:22:41-04:00"
+description = "A true nightmare"
+draft = true
+tags = []
+title = "Regular Expressions"
+
++++
+<body>
+  <div>Regular Expressions<br /><span class="subhead">/\w{7}\s\w{11}/</span></div>
+  <div>finding and manipulating words and data is tedious and bad</div>
+  <!--  -->
+  <div>the basics</div>
+  <div>Let's use this paragraph as an example. There was 1 sentence and now there are 2.</div>
+  <div><pre>/^\w/g</pre></div>
+  <div><pre><em>/</em>^\w<em>/g</em></pre></div>
+  <div><pre>/<em>^</em>\w/g</pre></div>
+  <div><pre>/^<em>\w</em>/g</pre></div>
+  <div><em>L</em>et's use this paragraph as an example. There was 1 sentence and now there are 2.</div>
+  <div><pre>/^\w<em>+</em>/g</pre></div>
+  <div><em>Let</em>'s use this paragraph as an example. There was 1 sentence and now there are 2.</div>
+  <div><pre>\w</pre><pre>[A-Za-z0-9_]</pre></div>
+  <div><pre>/^<em>[a-zA-Z]</em>+/g</pre></div>
+  <div><em>Let</em>'s use this paragraph as an example. There was 1 sentence and now there are 2.</div>
+  <div><pre>/^[a-zA-Z<em>'</em>]+/g</pre></div>
+  <div><em>Let's</em> use this paragraph as an example. There was 1 sentence and now there are 2.</div>
+  <div><pre>/<em>a</em>\w+/g</pre></div>
+  <div>Let's use this paragraph <em>as</em> <em>an</em> example. There was 1 sentence <em>and</em> now there <em>are</em> 2.</div>
+  <div><pre>/a\w<em>\w?</em>/g</pre></div>
+  <div>Let's use this paragraph <em>as</em> <em>an</em> example. There was 1 sentence <em>and</em> now there <em>are</em> 2.</div>
+  <div><pre>/\w<em>{5,}</em>/g</pre></div>
+  <div>Let's use this <em>paragraph</em> as an <em>example</em>. <em>There</em> was 1 <em>sentence</em> and now <em>there</em> are 2.</div>
+  <div><pre>/<em>\d</em>/g</pre></div>
+  <div>Let's use this paragraph as an example. There was <em>1</em> sentence and now there are <em>2</em>.</div>
+  <div><pre>/<em>.*</em>/g</pre></div>
+  <div><em>Let's use this paragraph as an example. There was 1 sentence and now there are 2.</em></div>
+  <div><pre>/<em>\</em>./g</pre></div>
+  <div>Let's use this paragraph as an example<em>.</em> There was 1 sentence and now there are 2<em>.</em></div>
+  <!--  -->
+  <div>match groups</div>
+  <div>how do i <em>do</em> things with what i find?</div>
+  <div>
+    <p class="nobreak">George Washington</p>
+    <p class="nobreak">John Adams</p>
+    <p class="nobreak">Thomas Jefferson</p>
+  </div>
+  <div><pre>/\w+\s<em>(\w+)</em>/g</pre></div>
+  <div>
+    <p><code>$0</code></p>
+    <br />
+    <p class="nobreak">George Washington</p>
+    <p class="nobreak">John Adams</p>
+    <p class="nobreak">Thomas Jefferson</p>
+  </div>
+  <div>
+    <p><code>$1</code></p>
+    <br />
+    <p class="nobreak">Washington</p>
+    <p class="nobreak">Adams</p>
+    <p class="nobreak">Jefferson</p>
+  </div>
+  <div>try it in Atom's find and replace</div>
+</body>

@@ -1,0 +1,202 @@
++++
+categories = []
+date = "2016-06-15T00:22:41-04:00"
+description = "An introduction to GitHub as a collaboration tool"
+draft = false
+tags = []
+title = "GitHub"
+
++++
+
+<body>
+  <div>GitHub <br /><span class="subhead">and you</span></div>
+  <div>GitHub is actually <em>three</em> things in one:
+    <ul>
+      <li>version control (<code>git</code>)</li>
+      <li>project management</li>
+      <li>hosting (GitHub Pages)</li>
+    </ul>
+  </div>
+  <div>version control: <em>track changes</em> for a whole project</div>
+  <div>Google Docs is entirely <em>synchronous</em></div>
+  <div>all of my changes appear instantly on your screen</div>
+  <div>emailing a <code>.docx</code> is entirely <em>asynchronous</em></div>
+  <div>i have no idea when your changes happened relative to mine</div>
+  <!-- git section -->
+  <div><code>git</code></div>
+  <div data-bodyclass="gitGraph"><canvas id="gitGraph"></canvas></div>
+  <div><code>git</code> remembers the project's entire history</div>
+  <div>if timelines diverge, it can reconcile the different changes</div>
+  <div>how?</div>
+  <div>a <em>commit</em> is a save point for one or more files</div>
+  <div>a <em>branch</em> is a chronological batch of commits</div>
+  <div>multiple branches means <em>parallel</em> work on multiple features</div>
+  <div>when a feature is ready, it can be <em>merged</em> into the main branch</div>
+  <div>commits are <em>pushed</em> to a central repository for the project</div>
+  <div>collaborators <em>pull</em> your changes from the central repo</div>
+  <!-- intro to GitHub -->
+  <div class="center">GitHub</div>
+  <div>those repos have to be hosted somewhere; GitHub provides that</div>
+  <div>each user or organization can create and own repos</div>
+  <div>a repo could be an app, a website, a set of documents, datasets, etc.</div>
+  <div><img src="images/repo.png" alt="" /></div>
+  <div><img src="images/commit-timeline.png" alt="" /></div>
+  <div><img src="images/network.png" alt="" /></div>
+  <div>GitHub also provides extra project management tools</div>
+  <div>issues</div>
+  <div><img src="images/issues.png" alt="" /></div>
+  <div><img src="images/issue-discussion.png" alt="" /></div>
+  <div>pull requests</div>
+  <div><img src="images/pull-requests.png" alt="" /></div>
+  <div><img src="images/pull-request-main.png" alt="" /></div>
+  <div><img src="images/pull-request-commits.png" alt="" /></div>
+  <div><img src="images/pull-request-changes.png" alt="" /></div>
+  <div>continuous integration</div>
+  <div><img src="images/ci.png" alt="" /></div>
+  <div><code>README.md</code> rendering</div>
+  <div><img src="images/readme.png" alt="" /></div>
+  <!-- <div>teams and access control</div>
+  <div>assignment</div>
+  <div>supplements:
+    <ul>
+      <li>Waffle.io</li>
+      <li>ZenHub</li>
+    </ul>
+  </div> -->
+  <!-- interactive section -->
+  <div>let's try it out</div>
+  <div>log in</div>
+  <div>go to <a href="https://github.com/codefordc/codefordc.github.com">github.com/codefordc/codefordc.github.com</a></div>
+  <div>click around on some files</div>
+  <div>some files are part of the website, some help with testing, some help with <code>git</code></div>
+  <div>find a file to edit</div>
+  <div><img src="images/graffiti.png" alt="" /></div>
+  <div><img src="images/new-content.png" alt="" /></div>
+  <div><img src="images/make-commit.png" alt="" /></div>
+  <div><img src="images/new-pr.png" alt="" /></div>
+  <div><img src="images/opened-pr.png" alt="" /></div>
+  <div>assign me to review it</div>
+  <div>you did it!</div>
+  <!-- hosting section -->
+  <div>GitHub Pages</div>
+  <div><a href="https://github.com/codefordc">github.com/codefordc</a></div>
+  <div><a href="https://github.com/codefordc/codefordc.github.com">github.com/codefordc/codefordc.github.com</a></div>
+  <div>github.com/your-name/your-name.github.com</div>
+  <!-- create the magic repo -->
+  <!-- add html or text -->
+  <div>the end!</div>
+</body>
+<script>
+  var gitgraph = new GitGraph({template: {
+      colors: [ "#ffffff", "#ff0000", "#0003ff", "#00ff00" ],
+      branch: {
+        lineWidth: 7,
+        spacingX: 50,
+        showLabel: true
+      },
+      commit: {
+        spacingY: -80,
+        dot: {
+          size: 14
+        },
+        message: {
+          font: "normal 14pt Nimbus Sans L"
+        },
+        shouldDisplayTooltipsInCompactMode: false
+      }
+    },
+    orientation: "horizontal",
+    mode: "compact"
+  });
+  var master = gitgraph.branch("master");
+  var develop = gitgraph.branch("develop");
+  var feature1 = develop.branch("feature1");
+  var feature2 = develop.branch("feature2");
+  var running = false;
+  var paused = false;
+
+  var gitHistory = [
+    "develop.commit()",
+    "feature1.commit()",
+    "feature2.commit()"
+    // "develop.merge(master)",
+    // "feature1.merge(develop)",
+    // "feature2.merge(develop)"
+  ]
+
+  function runGraph() {
+    running = true;
+    var i = 0;
+    var interval = setInterval(function () {
+      if (!paused) {
+        if (i < 2) {
+          master.commit();
+        } else if (i < 4) {
+          develop.commit();
+        } else if ($("#gitGraph").width() < ($(window).width() - 150)) {
+          random = Math.floor(Math.random() * ((gitHistory.length) - 0)) + 0;
+          eval(gitHistory[random]);
+          if ((feature1.commits.length === 4) && (!feature1.merged)) {
+            feature1.merge(develop);
+            feature1.merged = true;
+          }
+          if ((feature2.commits.length === 5) && (!feature2.merged)) {
+            feature2.merge(develop);
+            feature2.merged = true;
+          }
+        } else {
+          develop.merge(master);
+          clearInterval(interval);
+          setTimeout(function () {
+            running = false;
+            runGit();
+          }, 2000);
+        }
+        i++;
+      }
+    }, 500);
+  }
+
+  function runGit() {
+    gitgraph = "";
+    gitgraph = new GitGraph({template: {
+        colors: [ "#ffffff", "#ff0000", "#0003ff", "#00ff00" ],
+        branch: {
+          lineWidth: 10,
+          spacingX: 50
+        },
+        commit: {
+          spacingY: -80,
+          dot: {
+            size: 14
+          },
+          message: {
+            font: "normal 14pt Arial"
+          }
+        }
+      },
+      orientation: "horizontal",
+      mode: "compact"
+    });
+    master = gitgraph.branch("master");
+    develop = master.branch("develop");
+    feature1 = develop.branch("feature1");
+    feature2 = develop.branch("feature2");
+    runGraph();
+  }
+
+  $(window).on('keyup keydown click', function(event) {
+    if (typeof interval !== 'undefined') {
+      clearInterval(interval);
+    }
+    if ((big.current === 5) && (!running)) {
+      runGit();
+    }
+  });
+
+  $(window).on('keyup', function(event) {
+    if (event.keyCode === 32) {
+      paused = !paused
+    }
+  })
+</script>
