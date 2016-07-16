@@ -2,22 +2,56 @@
 categories = []
 date = "2016-06-15T00:22:41-04:00"
 description = "Some ideas about the place where we put all of our computers"
-draft = true
+draft = false
 tags = []
 title = "The Cloud"
 
 +++
 <body>
   <div>The cloud</div>
-  <div>The internet is just a bunch of <em>computers</em></div>
-  <div>Other computers send your computer <em>HTML</em>/<em>CSS</em>/<em>JS</em> to display</div>
-  <div>So, where are those computers?</div>
-  <div><img src="images/google_servers_inside.jpg" /></div>
-  <div><img src="images/google_servers_outside.jpg" />
-    <notes>http://www.nytimes.com/2006/06/14/technology/14search.html</notes>
-    <notes>https://www.youtube.com/watch?v=XZmGGAbHqa0</notes>
-  </div>
-  <div>AWS</div>
-  <div>Cloud Foundry<br /><span class="subhead">including cloud.gov</span></div>
-  <div>Heroku</div>
+  <div><em>First:</em> why do we care?</div>
+  <div>the internet is just a bunch of <em>computers</em></div>
+  <div>when you type in a URL, your browser sends a request to the computer located at the corresponding IP address</div>
+  <div>in response, that computer sends your computer <em>HTML</em>/<em>CSS</em>/<em>JS</em> to display</div>
+  <div>so, where are those computers?</div>
+  <div>they can be anywhere</div>
+  <div>your <em>laptop</em> can be a server (but not a very good one since it isn't always on)</div>
+  <div>you could leave a computer running in your basement</div>
+  <div>for higher-traffic sites, more computers are required to handle the load</div>
+  <div>that's essentially what people did: buy a <em>bunch of computers</em> and put them in a room</div>
+  <div><img src="/img/wikimedia_servers_front.jpg" alt="Wikimedia Foundation servers" /> like this <notes>https://upload.wikimedia.org/wikipedia/commons/2/27/Wikimedia_Foundation_Servers-8055_08.jpg</notes></div>
+  <div><img src="/img/wikimedia_servers_back.jpg" alt="Wikimedia Foundation servers" /> <notes>https://upload.wikimedia.org/wikipedia/commons/1/10/Wikimedia_Foundation_Servers-8055_23.jpg</notes></div>
+  <div><em>problems</em></div>
+  <div>server <em>administration</em> is a specific skill</div>
+  <div>are your machines <em>up-to-date</em>?</div>
+  <div>server farms need significant <em>cooling</em> to operate</div>
+  <div>what if there's a <em>spike</em> in visitors?</div>
+  <div>what if the <em>power</em> goes out?</div>
+  <div><em>The cloud solution</em><br />let us worry about that for you</div>
+  <div class="commalist">AWS, Cloud Foundry, Heroku, Digital Ocean</div>
+  <div>typically, cost is usage-based</div>
+  <div><em>AWS</em><br />provides extremely wide range of specific services</div>
+  <div><em>Digital Ocean</em><br />provides Linux boxes for rent</div>
+  <div><em>Cloud Foundry & Heroku</em><br />deploy apps within a provided environment</div>
+  <div><em>Heroku</em> deploys a <code>git</code> repository</div>
+  <div><em>CF</em> deploys any specified file system</div>
+  <div>how do you interact with your servers?</div>
+  <div>most basic: <code>ssh</code></div>
+  <div><pre>
+    $ pwd
+    /Users/stevenreilly
+    $ ssh stvnrlly@192.168.1.5 -i ~/.ssh/id_rsa
+    # pwd
+    /homes/stvnrlly
+  </pre></div>
+  <div>provider-provided dashboards</div>
+  <div>provider-specific cli</div>
+  <div><pre>
+    $ heroku apps:create my-awesome-app
+    $ git push heroku master
+  </pre></div>
+  <div><pre>
+    $ touch manifest.yml
+    $ cf push -f manifest.yml
+  </pre></div>
 </body>

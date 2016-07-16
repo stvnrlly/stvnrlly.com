@@ -1,9 +1,9 @@
 body {
   font-family:'Nimbus Sans L','Helvetica',sans-serif;
   letter-spacing:-5px;
-  background:#18f;
+  background:#1C304A;
   background-size:100%;
-  color:#fff;
+  color:#00CFFF;
   margin:0;
   padding:0;
   font-weight:bold;
@@ -56,11 +56,11 @@ div {
 }
 
 .commalist > span:nth-of-type(even) {
-  color: #020067
+  color: #fff000;
 }
 
 .commalist > span:nth-of-type(odd) {
-  color: #331fb1
+  color: #99ff00;
 }
 
 .imageText {

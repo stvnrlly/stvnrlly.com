@@ -1,0 +1,66 @@
++++
+categories = []
+date = "2016-06-15T00:22:41-04:00"
+description = "What can you trust, and how far do you go?"
+draft = false
+tags = []
+title = "Security"
+
++++
+
+<body>
+  <div>Security<br /><span class="subhead">for normal people</span></div>
+  <div><em>the big question</em><br />who or what can you trust?</div>
+  <div><em>the bigger question</em><br />how much effort is worth it?</div>
+  <div>think about a key</div>
+  <div>we make <em>trade-offs</em>: why invest in a crazy lock when you have glass windows?</div>
+  <div>but for some people it's worth it</div>
+  <div><em>username/password</em></div>
+  <div>user has a unique username, confirms identity with password</div>
+  <div>the information is stored in a database somewhere</div>
+  <div>this data should be encrypted, but user has no way to check that</div>
+  <div><em>api keys</em></div>
+  <div>these are a bit like an account, but grant the ability to interact with an API</div>
+  <div>in some cases, API keys are not strictly necessary but help identify high-volume users</div>
+  <div>the server gets a request that includes a key, and checks its database</div>
+  <div><pre>
+    $ curl -H "API-Key: my-api-key" https://api.github.com
+    {"status": "200", "data": {"good stuff": "wow"}}
+
+    $ curl -H "API-Key: bad-api-key" https://api.github.com
+    {"status": "403", "error": "Not Authorized"}
+  </pre></div>
+  <div><em>OAuth</em></div>
+  <div>an open standard to allow <em>third-party</em> services to authenticate users</div>
+  <div>you sign in to Google, and Google tells the site you're on some information about you</div>
+  <div>streamlines identity/authentication, but allows services to share information</div>
+  <div><em>multi-factor authentication</em></div>
+  <div>for a user, a password is your first factor for authentication</div>
+  <div>to add security, require an additional authentication method</div>
+  <div>usually through a <em>physical device</em>: a phone or a personalized number generator</div>
+  <div><em>PGP</em></div>
+  <div>powerful method of encrypting and sending messages</div>
+  <div>you generate <em>public</em> and <em>private</em> key</div>
+  <div>combine your public key and their private key to create a message <em>only they</em> can decrypt</div>
+  <div>buttressed by the idea of a <em>web of trust</em></div>
+  <div>the downside? it's extremely complicated to configure</div>
+  <div><em>hashes</em></div>
+  <div>pass data through an algorithm, which creates a corresponding string of a set length</div>
+  <div>post that string publicly</div>
+  <div>when i download the content, i run it through the same algorithm and check that it matches</div>
+  <div><pre>
+    $ echo hello | shasum
+    f572d396fae9206628714fb2ce00f72e94f2258f
+    $ cat ulysses.txt | shasum
+    e3f6a281ec231f4f1e7ccbaea5d87ef43b3ed03f
+  </pre></div>
+  <div><em><code>ssh</code> keys</em></div>
+  <div>servers typically allow username/password access</div>
+  <div>but this is less secure than a super-long string of random characters</div>
+  <div>generate such a string locally, and tell the server to ask for that instead</div>
+  <div>in general</div>
+  <div>we place a lot of demands on users</div>
+  <div>but security requires best practices on both sides</div>
+  <div>humans want ease, but that's in conflict with good security</div>
+  <div>removing the human element often improves things</div>
+</body>
