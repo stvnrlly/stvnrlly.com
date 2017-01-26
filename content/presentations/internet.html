@@ -1,0 +1,165 @@
++++
+categories = []
+date = "2016-06-15T00:22:41-04:00"
+description = "How it works, a little bit"
+draft = false
+tags = []
+title = "The Internet"
+
++++
+<body>
+  <div>The Internet<br /><span class="subhead">in a nutshell</span></div>
+  <div>The Internet is computers talking to other computers</div>
+  <div>your computer sends a <em>request</em> to another computer</div>
+  <div>that computer sends your computer some <em>files</em></div>
+  <div>those files: <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+  <div>HTML</div>
+  <div><em>H</em>yper<em>T</em>ext <em>M</em>arkup <em>L</em>anguage</div>
+  <div>information arranged in a structured format</div>
+  <div><pre><code>
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Cool Website&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;I'm a header&lt;/h1&gt;
+        &lt;p&gt;I'm a paragraph&lt;/p&gt;
+        &lt;p class="hello"&gt;And another paragraph&lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre></div>
+  <div><pre><code>
+    <h1>I'm a header</h1>
+    <p>I'm a paragraph</p>
+    <p class="hello">And another paragraph</p>
+  </code></pre></div>
+  <div>CSS</div>
+  <div><em>C</em>ascading <em>S</em>tyle <em>S</em>heets</div>
+  <div>Instructions for displaying the HTML</div>
+  <div><pre><code>
+    body {
+      font-size: 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+      background-color: #18F18F;
+    }
+  </code></pre></div>
+  <div>JavaScript</div>
+  <div>interactivity && manipulation</div>
+  <div><pre><code>
+    var h = document.getElementByClassName("hello");
+    h[0].innerHTML = "wow hello";
+
+    h[0].onclick = function(){
+      console.log(h)
+    }
+  </code></pre></div>
+  <div>the browser knows how to translate and display these documents</div>
+  <div>how it works</div>
+  <div>every networked device has an <em>IP address</em></div>
+  <div>216.58.217.174<br />159.142.144.188<br />208.80.154.224</div>
+  <div>but that's impossible to remember</div>
+  <div>so domain names exist</div>
+  <div>ICANN manages the domain name system</div>
+  <div>Google registered <em>google.com</em> and connected it to <em>216.58.217.174</em></div>
+  <div>you can use HTTP to interact with the device at 216.58.217.174</div>
+  <div><em>H</em>yper<em>T</em>ext <em>T</em>ransfer <em>P</em>rotocol</div>
+  <div>the browser handles this interaction for you</div>
+  <div>
+    💻: send me the file at / of google.com
+    <pre><code>
+    GET / HTTP/1.1
+    Accept: */*
+    Accept-Encoding: gzip, deflate
+    Connection: keep-alive
+    Host: google.com
+    User-Agent: HTTPie/0.9.8
+  </code></pre></div>
+  <div><pre><code>
+    HTTP/1.1 301 Moved Permanently
+    Cache-Control: public, max-age=2592000
+    Content-Length: 219
+    Content-Type: text/html; charset=UTF-8
+    Date: Thu, 26 Jan 2017 02:32:22 GMT
+    Expires: Sat, 25 Feb 2017 02:32:22 GMT
+    Location: http://www.google.com/
+    Server: gws
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
+
+    &lt;HTML&gt;&lt;HEAD&gt;
+    &lt;TITLE&gt;301 Moved&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;
+    &lt;H1&gt;301 Moved&lt;/H1&gt;
+    The document has moved
+    &lt;A HREF="http://www.google.com/"&gt;here&lt;/A&gt;.
+    &lt;/BODY&gt;&lt;/HTML&gt;
+  </code></pre></div>
+  <div>
+    💻: send me the file at / of www.google.com
+    <pre><code>
+    GET / HTTP/1.1
+    Accept: */*
+    Accept-Encoding: gzip, deflate
+    Connection: keep-alive
+    Host: www.google.com
+    User-Agent: HTTPie/0.9.8
+  </code></pre></div>
+  <div><pre><code>
+    HTTP/1.1 200 OK
+    Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+    Cache-Control: private, max-age=0
+    Content-Encoding: gzip
+    Content-Type: text/html; charset=ISO-8859-1
+    Date: Thu, 26 Jan 2017 02:35:26 GMT
+    Expires: -1
+    Server: gws
+    Set-Cookie: [a bunch of stuff]
+    Transfer-Encoding: chunked
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
+
+    [lots of HTML]
+  </code></pre></div>
+  <div>servers know how to receive an HTTP request and send back the appropriate HTML in response</div>
+  <div>the simplest servers just send back pre-written files from a folder</div>
+  <div><pre><code>
+    .
+    ├─ index.html
+    ├─ about.html
+    └─ posts
+       ├─ post1.html
+       └─ post2.html
+  </code></pre></div>
+  <div>that is a <em>static</em> site</div>
+  <div class="nobreak">
+    👨: hello, static site
+    🖥: hello, friend
+
+    👧: hello, static site
+    🖥: hello, friend
+  </div>
+  <div>that server might be:<ul>
+    <li>Apache</li>
+    <li>nginx</li>
+    <li>Caddy</li>
+  </ul></div>
+  <div>a more complicated server can build HTML based on instructions it's been given</div>
+  <div>that is a <em>dynamic</em> site</div>
+  <div class="nobreak">
+    👨: hello, dynamic site
+    🖥: hello, steve
+
+    👧: hello, dynamic site
+    🖥: hello, sharon
+  </div>
+  <div>instructions might be written in:<ul>
+    <li>Python</li>
+    <li>Ruby</li>
+    <li>node.js</li>
+    <li>PHP</li>
+  </ul></div>
+  <div>in this setup, the simple server passes the request to the application for handling</div>
+  <div>and now you know <a href="https://github.com/alex/what-happens-when">everything</a></div>
+</body>
