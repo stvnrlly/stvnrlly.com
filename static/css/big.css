@@ -6,7 +6,7 @@ body {
   color:#00CFFF;
   margin:0;
   padding:0;
-  font-weight:bold;
+  /*font-weight:bold;*/
 }
 
 h1, h2, h3, p {
@@ -48,7 +48,7 @@ div {
   top:0;
   left:0;
   padding:75px;
-  line-height:97%;
+  /*line-height:97%;*/
 }
 
 .center {
