@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Black Eyed Peas URL Validator</title>
+    <link rel="stylesheet" href="/css/peas.css" type="text/css" />
+    <meta name="description" content="For when you need to know which members of the Black Eyed Peas are also valid URLs" />
+    <meta name="og:description" content="For when you need to know which members of the Black Eyed Peas are also valid URLs" />
+</head>
+<body>
+    <div class="will">will.i.am</div>
+    <hr>
+    <div class="apl">apl.de.ap</div>
+    <hr>
+    <div class="taboo">Taboo</div>
+    <hr>
+    <div class="fergie">Fergie</div>
+</body>
+<script src="/js/tld.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(document).ready( function() {
+    var peas={
+        "will": "http://will.i.am",
+        "apl": "http://apl.de.ap",
+        "taboo": "http://Taboo",
+        "fergie": "http://Fergie"
+    };
+    $.each(peas, function(name, url) {
+        if (tldjs.tldExists(url) == true) {
+            $("."+name).css("background-color", "#12AD2B");
+        } else {
+            $("."+name).css("background-color", "#EA0437");
+        }
+        console.log(name, url)
+    });
+});
+</script>
+</html>
